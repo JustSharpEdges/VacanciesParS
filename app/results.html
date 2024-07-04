@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск результатов</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Результаты</h1>
+        <p>Парсинг завершился за {{ elapsed_time }} секунд</p>
+        {% if vacancies %}
+            {% for vacancy in vacancies %}
+                <div class="vacancy">
+                    <p><strong>ID:</strong> {{ vacancy.id }}</p>
+                    <p><strong>Название:</strong> {{ vacancy.name }}</p>
+                    <p><strong>Компания:</strong> {{ vacancy.company }}</p>
+                    <p><strong>URL:</strong> <a href="{{ vacancy.url }}" target="_blank">{{ vacancy.url }}</a></p>
+                    <p><strong>Опыт:</strong> {{ vacancy.experience }}</p>
+                    <p><strong>Описание:</strong> {{ vacancy.description }}</p>
+                    <p><strong>Зарплата</strong> {{ vacancy.salary }}</p>
+                </div>
+                <hr>
+            {% endfor %}
+        {% else %}
+            <p>Нет подходящих вакансий.</p>
+        {% endif %}
+        <a href="/">Назад к поиску</a>
+    </div>
+</body>
+</html>

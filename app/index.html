@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск вакансий</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Поиск по всем вакансиям hh.ru</h1>
+        <form action="/search" method="post">
+            <input type="text" name="keyword" placeholder="Название вакансии">
+            <br>
+            <input type="text" name="company" placeholder="Название компании">
+            <br>
+            <label for="experience">Опыт</label>
+            <select id="experience" name="experience">
+                <option value="">Любой</option>
+                <option value="noExperience">Нет опыта</option>
+                <option value="between1And3">от 1 года до 3 лет</option>
+                <option value="between3And6">от 3 до 6 лет</option>
+                <option value="moreThan6">Более 6 лет</option>
+            </select>
+            <br>
+            <button type="submit">Поиск</button>
+        </form>
+    </div>
+</body>
+</html>
