@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  db:
+    build:
+      context: ./database
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: vacancies_db
+      POSTGRES_USER: svyatoslavgrigorev
+      POSTGRES_PASSWORD: ****
+    ports:
+      - "5432:5432"
+
+  web:
+    build: .
+    command: flask run --host=0.0.0.0 --port=8080
+    volumes:
+      - .:/app
+    ports:
+      - "8080:8080"
+    environment:
+      FLASK_ENV: development
+    depends_on:
+      - db
+
+volumes:
+  pgdata:
