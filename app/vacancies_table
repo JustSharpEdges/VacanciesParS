@@ -1,0 +1,11 @@
+CREATE TABLE vacancies (
+    id SERIAL PRIMARY KEY,
+    hh_id VARCHAR(255) UNIQUE,
+    name VARCHAR(255),
+    url TEXT,
+    company VARCHAR(255),
+    experience VARCHAR(255),
+    description TEXT,
+    salary VARCHAR(255)
+);
+
